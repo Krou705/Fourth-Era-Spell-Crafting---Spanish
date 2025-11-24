@@ -464,8 +464,8 @@ void __stdcall UI::SpellCraftMenu::RenderWindow() {
 
 
 
-void GenSpellSchoolMenu(std::vector<RE::SpellItem*> School, ImVec4 Color, const char* Title, std::string_view SearchText) {  // I couldn't think of a name
-    ImGui::TextColored(Color, Title);
+void GenSpellSchoolMenu(std::vector<RE::SpellItem*> School, ImGuiMCP::ImVec4 Color, const char* Title, std::string_view SearchText) {
+     using namespace ImGuiMCP;
     for (auto Spell : School) {
         std::string SpellName = Spell->GetFullName();
         if (UI::ChoseEffectMenu::Searching && !SpellName.starts_with(SearchText)) {
@@ -641,7 +641,7 @@ void __stdcall UI::MCP::Render() {
         GotSettings = false;
     }
     ImGui::SameLine();
-    if (ImGui::Button("Restaurar a Predeterminados")) {
+    if (ImGui::Button("Restaurar Predeterminados")) {
         ShowPerkEffects = true;
         FullScreen = false;
         ShowOgCost = false;
